@@ -1,0 +1,102 @@
+:root{
+    --grayish-blue: hsl(237, 18%, 59%);
+    --soft-red: hsl(345, 95%, 68%);
+
+    --white: hsl(0, 0%, 100%);
+    --dark-desaturated-blue: hsl(236, 21%, 26%);
+    --very-dark-blue: hsl(235, 16%, 14%);
+    --very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 14px;
+    font-family: 'Red Hat Text', sans-serif;
+    
+    height: 100vh;
+    
+    background: no-repeat url("../images/pattern-hills.svg")  bottom left / contain,
+                no-repeat url("../images/bg-stars.svg"),
+                linear-gradient(var(--very-dark-mostly-black-blue),var(--dark-desaturated-blue));
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+header{
+    padding: 80px 0;
+}
+header h1{
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 20px;
+
+}
+
+.card{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    
+    border-radius: 10px;
+    
+    box-shadow: 0px 15px 0px 0px rgba(0,0,0,0.4);
+    background: var( --very-dark-blue);
+}
+
+.card:before{
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    
+    border-radius: 10px;
+    
+    background-color: var(--dark-desaturated-blue);
+    opacity: 0.6;
+}
+.card:after{
+    content: "";
+    position: absolute;
+    top: 100px;
+    height: 100px;
+    width: 200px;
+    
+    border-radius: 10px;
+    
+    background-color: var(--dark-desaturated-blue);
+}
+
+
+
+main h3{
+    padding: 30px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--grayish-blue);
+}
+
+
+
+
+
+
+
+
+
