@@ -60,7 +60,8 @@ main{
     border-radius: 10px;
             
     box-shadow: 0px 15px 0px 0px rgba(0,0,0,0.4);
-    background: var( --very-dark-blue);
+    background: var(--very-dark-blue);
+    
 }
 
 .card:before{
@@ -73,7 +74,7 @@ main{
     
     border-radius: 10px 10px 0 0;      
     background-color: var(--dark-desaturated-blue);
-    opacity: 0.6;
+    opacity: 0.7;
 }
 .card:after{
     content: "";
@@ -89,7 +90,7 @@ main{
     background-color: var(--dark-desaturated-blue);
 }
 
-.days{
+.card div{
     align-self: center;
     font-size: 7.5em;
     color: var(--soft-red);
