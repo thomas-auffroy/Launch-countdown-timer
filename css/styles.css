@@ -107,13 +107,31 @@ main{
     background: #262738;
     opacity: 0.2;
 }
-/*
-.card:hover:before{
-    background: var(--very-dark-mostly-black-blue);
-    transition: transform 500ms ease-in;
-    transform: translateY(100%) scale(1,-1);
+.card:hover div:before{
+    transition: opacity 300ms ease-out;
+    opacity: 1;
+    background: var(--very-dark-blue);
 }
-*/
+
+.card:hover:before{
+    display: block;
+    z-index: 1;
+    opacity: 1;
+    transition: transform 500ms ease-in, background 500ms ease-in, opacity 500ms ease-in;
+    transform: translateY(100%) scale(1,-1);
+    background: var(--dark-desaturated-blue);
+}
+.card:before.anim{
+    display: block;
+    z-index: 1;
+    opacity: 1;
+    transition: transform 500ms ease-in, background 500ms ease-in, opacity 500ms ease-in;
+    transform: translateY(100%) scale(1,-1);
+    background: var(--dark-desaturated-blue);
+}
+
+
+
 
 main h3{
     padding: 30px 0;
