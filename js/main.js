@@ -15,47 +15,49 @@ function convert(seconds){
 
 function update(){
     var times = convert(seconds); 
-        
     for (i=0; i<4; i++){
-
-        observer.observe(cards[i], config);
-
         if(times[i].toString().length == 1)
             cards[i].textContent = "0" + times[i].toString();
         else
             cards[i].textContent = times[i].toString();
-    }
 
+        dlt(masks[i]);
+    }
+   
     seconds--;
+    
 }
 
 function callback(mutationsList, observer) {
-    var target = mutationsList[0].target.parentNode.className; 
-    
-    //document.styleSheets[0].insertRule("." + target + ":hover { background: black;}",0);
-    //document.styleSheets[0].addRule('div.card:hover', 'background: black;');
-   
-    /*
     for (i=0; i <4; i++){
         if (mutationsList[i].addedNodes[0].textContent != mutationsList[i].removedNodes[0].textContent){
-            mutationsList[i].target.parentElement.style.background = "var(--very-dark-mostly-black-blue)";
-            mutationsList[i].target.parentElement.style.transform = "translateY(100%) scale(1,-1)";
-            mutationsList[i].target.parentElement.style.transition = "transform 500ms ease-in";
+            masks[i].classList.add("anim"); 
         }
     }
-    */
+}
 
+function obs(){
+    for (i=0; i<4; i++){
+        observer.observe(cards[i], config);
+    }
+}
 
+function dlt(target){
+    target.classList.remove("anim");
+    console.log(target)
 }
 
 var cards = document.querySelectorAll(".card div")
+var masks = document.querySelectorAll(".mask")
 
 const config = {childList: true};  
 const observer = new MutationObserver(callback);
 
+const init_date = new Date().getTime();
+
 let seconds = 777342;
 
-
+obs()
 update();
-//setInterval(update,1000);
-
+setInterval(update,1000);
+//setTimeout(dlt,10,masks[3]);
