@@ -16,12 +16,13 @@ function convert(seconds){
 function update(){
     var times = convert(seconds); 
     for (i=0; i<4; i++){
+        
         if(times[i].toString().length == 1)
             cards[i].textContent = "0" + times[i].toString();
         else
             cards[i].textContent = times[i].toString();
 
-        dlt(masks[i]);
+        
     }
    
     seconds--;
@@ -32,6 +33,7 @@ function callback(mutationsList, observer) {
     for (i=0; i <4; i++){
         if (mutationsList[i].addedNodes[0].textContent != mutationsList[i].removedNodes[0].textContent){
             masks[i].classList.add("anim"); 
+            setTimeout(dlt,900,masks[i]);
         }
     }
 }
@@ -43,8 +45,7 @@ function obs(){
 }
 
 function dlt(target){
-    target.classList.remove("anim");
-    console.log(target)
+    target.classList.remove("anim");    
 }
 
 var cards = document.querySelectorAll(".card div")
@@ -55,9 +56,8 @@ const observer = new MutationObserver(callback);
 
 const init_date = new Date().getTime();
 
-let seconds = 777342;
+let seconds = 777300;
 
 obs()
 update();
-setInterval(update,1000);
-//setTimeout(dlt,10,masks[3]);
+//setInterval(update,1000);
