@@ -17,30 +17,30 @@ function update(){
     var times = convert(seconds); 
     for (i=0; i<4; i++){
         
-        if(times[i].toString().length == 1)
+        if(times[i].toString().length == 1){
             cards[i].textContent = "0" + times[i].toString();
-        else
+            cards[i].textContent = "0" + times[i].toString();
+        }
+        else{
             cards[i].textContent = times[i].toString();
-
-        
+            cards[i].textContent = times[i].toString();
+        }        
     }
-   
-    seconds--;
-    
+    seconds--; 
 }
 
 function callback(mutationsList, observer) {
-    for (i=0; i <4; i++){
-        if (mutationsList[i].addedNodes[0].textContent != mutationsList[i].removedNodes[0].textContent){
-            masks[i].classList.add("anim"); 
-            setTimeout(dlt,900,masks[i]);
+    for (i=0; i < mutationsList.length; i++){
+        if (mutationsList[i].addedNodes[0].textContent != mutationsList[i].removedNodes[0].textContent){   
+            mutationsList[i].target.parentElement.classList.add("anim");
+            setTimeout(dlt,900,mutationsList[i].target.parentElement);
         }
     }
 }
 
 function obs(){
-    for (i=0; i<4; i++){
-        observer.observe(cards[i], config);
+    for (i=0; i < 4; i++){
+        observer.observe(cards_top[i], config);
     }
 }
 
@@ -48,8 +48,9 @@ function dlt(target){
     target.classList.remove("anim");    
 }
 
-var cards = document.querySelectorAll(".card div")
+var cards_top = document.querySelectorAll(".card.top div")
 var masks = document.querySelectorAll(".mask")
+var cards_below = document.querySelectorAll(".card.below div");
 
 const config = {childList: true};  
 const observer = new MutationObserver(callback);
@@ -60,4 +61,4 @@ let seconds = 777300;
 
 obs()
 update();
-//setInterval(update,1000);
+setInterval(update,1000);
