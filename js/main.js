@@ -32,6 +32,7 @@ function callback(mutationsList, observer) {
     for (i=0; i < mutationsList.length; i++){
         if (mutationsList[i].addedNodes[0].textContent != mutationsList[i].removedNodes[0].textContent){   
             mutationsList[i].target.parentElement.classList.add("anim");
+            cards_below[i].parentElement.style.visibility = "visible";
             setTimeout(dlt,900,mutationsList[i].target.parentElement);
         }
     }
@@ -44,7 +45,8 @@ function obs(){
 }
 
 function dlt(target){
-    target.classList.remove("anim");    
+    target.classList.remove("anim"); 
+    target.nextElementSibling.style.visibility = "hidden";  
 }
 
 var cards_top = document.querySelectorAll(".card.top div")
