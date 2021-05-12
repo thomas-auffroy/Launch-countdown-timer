@@ -14,14 +14,18 @@
 }
 
 body{
-    font-size: 14px;
-    font-family: 'Red Hat Text', sans-serif;
-    
     height: 100vh;
     
     background: no-repeat url("../images/pattern-hills.svg")  bottom left / contain,
                 no-repeat url("../images/bg-stars.svg"),
                 linear-gradient(var(--very-dark-mostly-black-blue),var(--dark-desaturated-blue));
+    
+    font-size: 14px;
+    font-family: 'Red Hat Text', sans-serif;
+    
+    overflow: hidden;
+    
+    
 }
 
 .container{
