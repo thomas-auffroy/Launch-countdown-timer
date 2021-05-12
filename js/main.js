@@ -18,12 +18,12 @@ function update(){
     for (i=0; i<4; i++){
         
         if(times[i].toString().length == 1){
-            cards[i].textContent = "0" + times[i].toString();
-            cards[i].textContent = "0" + times[i].toString();
+            cards_top[i].textContent = "0" + times[i].toString();
+            cards_below[i].textContent = "0" + times[i].toString();
         }
         else{
-            cards[i].textContent = times[i].toString();
-            cards[i].textContent = times[i].toString();
+            cards_top[i].textContent = times[i].toString();
+            cards_below[i].textContent = times[i].toString();
         }        
     }
     seconds--; 
