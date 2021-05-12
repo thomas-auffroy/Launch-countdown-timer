@@ -16,7 +16,6 @@ function convert(seconds){
 function update(){
     var times = convert(seconds); 
     for (i=0; i<4; i++){
-        
         if(times[i].toString().length == 1){
             cards_top[i].textContent = "0" + times[i].toString();
             cards_below[i].textContent = "0" + times[i].toString();
