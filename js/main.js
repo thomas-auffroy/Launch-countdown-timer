@@ -58,7 +58,7 @@ const observer = new MutationObserver(callback);
 
 const init_date = new Date().getTime();
 
-let seconds = 777300;
+let seconds = 1209600;
 
 obs()
 update();
